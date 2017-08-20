@@ -29,6 +29,18 @@ and/or change the contents of the responses.
 connections from mitmproxy through tor, so they can reach the real dstormer
 .onion site.
 
+## Installation (Ubuntu)
+```
+sudo apt-get update
+sudo apt-get install make gcc tor mitmproxy
+git clone https://github.com/rofl0r/proxychains-ng.git
+git clone https://github.com/storm-phisher/storm_phishing.git
+
+cd proxychains-ng.git
+./configure --prefix=/usr --sysconfdir=/etc
+make && sudo make install && sudo make install-config
+```
+
 ## Steps
 
 1. Use scallion to generate a dstormer--------.onion hostname and key.
@@ -50,7 +62,8 @@ mono scallion/bin/Debug/scallion.exe -d 1 dstormer
 2. Make a directory for the scam hidden service.
 
   ```
-mkdir -m 700 /var/lib/tor/hidden_service
+sudo mkdir -m 700 /var/lib/tor/hidden_service
+chown -R ubuntu:ubuntu /var/lib/tor
   ```
 
 3. Put the `<Hash>` value into `hostname` file. E.g.,
